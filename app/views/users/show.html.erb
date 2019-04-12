@@ -1,0 +1,23 @@
+<nav class="navbar">
+      <span class="navbar-text ml-md-auto">
+        Welcome, <%= @user.username %>!
+      </span>
+    <div class="navbar-nav px-3">
+        <%= link_to 'Log out', logout_path, class: "nav-item btn btn-outline-secondary" %>
+    </div>
+</nav>
+<%= div_for @user, class: 'container' do %>
+    <% @user.lists.each do |list| %>
+      <%= render :partial => 'lists/list', :locals => {:list => list} %>
+    <% end %>
+  <div class="list-add-btn text-center mb-5">
+
+    <%- if @user.lists.empty? %>
+      <h4 class="welcome-text pb-3 pt-5">Click the button below to create your first TODO list</h4>
+    <% end %>
+
+    <%= link_to "Add TODO List", show_list_form_path(@user), remote: true, class: 'btn btn-lg btn-primary' %>
+  </div>
+<% end %>
+
+  

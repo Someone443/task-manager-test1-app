@@ -1,0 +1,21 @@
+<%= form_with(model: @task, remote: true, class: "edit_task_form col-md-12", id: "task_#{@task.id}") do |form| %>
+	<%= form.label :title, class: 'sr-only' %>
+	<div class="input-group">
+		<%= form.text_field :title, id: "task#{@task.id}_title", class: 'form-control', title: 'Task title', required: true %>
+		<div class="input-group-append">
+			<div class="input-group input-group-prepend">
+				<%= form.label :deadline, for: "task#{@task.id}_deadline", class: 'sr-only' %>
+				<%= form.text_field :deadline, id: "task#{@task.id}_deadline", class: 'form-control', title: 'Deadline', :type => "date" %>
+				<%= form.hidden_field :list_id, id: "task#{@task.id}_list_id", :value => @task.list_id %>
+			</div>
+		<%= form.submit "Save Task", :disable_with => 'Saving...', class: 'btn btn-primary' %>
+		</div>
+	</div>
+	<%- if flash[:error] %>
+		<% flash[:error].each do |msg| %>
+			<small class="form-text text-danger">
+				<%= msg %>
+			</small>
+		<% end %>
+	<% end %>	
+<% end %>

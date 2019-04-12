@@ -1,0 +1,1 @@
+$( "div#list_<%= params[:task][:list_id] %> > .card-body > .task_form" ).replaceWith('<%= j render :partial => "tasks/form", :locals => {:list => List.find(params[:task][:list_id])} %>');

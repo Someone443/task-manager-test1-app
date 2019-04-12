@@ -1,0 +1,1 @@
+$("form#task_<%= @task.id %>").parent().replaceWith('<%= j render partial: "task", locals: {task: @task} %>');

@@ -1,0 +1,23 @@
+<div class="list-wrap">
+  <%= div_for list, class: 'card' do %>
+      <div class='card-header'>
+          <h4 class="navbar-text"><%= list.title %></h4>
+        <div class="list-edit navbar-text pl-2">
+          <%= link_to edit_list_path(list), class: "icon-link", title: "Edit", remote: true do %>
+            <i class="em em-pencil2"></i>
+          <% end %> | 
+          <%= link_to list_path(list), class: "icon-link", title: "Delete", method: :delete, remote: true, data: { confirm: "Are you sure? All tasks in the list will be also deleted." } do %>
+            <i class="em em-wastebasket"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= render :partial => 'tasks/form', :locals => {:list => list} %>
+      </div>
+      <ul class="list-group list-group-flush">
+          <% list.tasks.each do |task| %>
+            <%= render task %>
+          <% end %>
+      </ul>
+  <% end %>
+</div>

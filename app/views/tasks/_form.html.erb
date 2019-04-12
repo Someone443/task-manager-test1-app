@@ -1,0 +1,21 @@
+<%= form_with(model: Task.new, remote: true, class: "task_form col-md-12") do |form| %>
+	<%= form.label :title, class: 'sr-only' %>
+	<div class="input-group">
+		<%= form.text_field :title, id: "list#{list.id}_task_title", class: 'form-control', title: 'Task title', placeholder: 'Start typing here to create a task...', required: true %>
+		<div class="input-group-append">
+			<div class="input-group input-group-prepend">
+				<%= form.label :deadline, for: "list#{list.id}_task_deadline", class: 'sr-only' %>
+				<%= form.text_field :deadline, id: "list#{list.id}_task_deadline", class: 'form-control', title: 'Deadline', :type => "date" %>
+				<%= form.hidden_field :list_id, id: "list#{list.id}_task_list_id", :value => list.id %>
+			</div>
+				<%= form.submit "Create Task", :disable_with => 'Creating...', class: 'btn btn-primary' %>
+		</div>
+	</div>
+	<%- if flash[:error] %>
+		<% flash[:error].each do |msg| %>
+			<small class="form-text text-danger">
+				<%= msg %>
+			</small>
+		<% end %>
+	<% end %>
+<% end %>

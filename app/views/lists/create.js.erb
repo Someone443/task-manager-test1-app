@@ -1,0 +1,4 @@
+$( "div#user_<%= j @list.user_id.to_s %> > .list_form" ).before('<%= j render partial: "lists/list", locals: {list: @list} %>');
+$( "div#user_<%= j @list.user_id.to_s %> > .list_form" )[0].reset();
+$( "div#user_<%= j @list.user_id.to_s %> > .list_form" ).remove();
+$( ".list-add-btn" ).show();

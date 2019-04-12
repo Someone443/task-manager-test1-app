@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap";
+
+html, body {
+	height: 100%;
+}
+
+body {
+	padding-bottom: 40px;
+}
+
+.flex_center {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+}
+
+.form-login {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin: auto;
+}
+
+.reg_link {
+	margin-top: 15px;
+}
+
+.new_user {
+	width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin: auto;
+}
+
+.user {
+	max-width: 1400px;
+	min-width: 320px;
+	&>div {
+		width: 100%;
+	}
+}
+
+.list-wrap {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.list-add-btn {
+	margin: auto;
+}
+
+.list {
+	margin: auto;
+}
+
+.list_form {
+    padding: 20px 35px 20px 35px;
+    margin: auto;
+}
+
+.task_form {
+    margin: auto;
+}
+
+.done > .task-title {
+	text-decoration: line-through;
+}
+
+.em {
+	height: 1.2em !important;
+    width: 1.2em !important;
+}
+
+a.icon-link:hover {
+  text-decoration: none;
+}

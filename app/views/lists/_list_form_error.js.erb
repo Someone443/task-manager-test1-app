@@ -1,0 +1,1 @@
+$( ".list_form" ).replaceWith('<%= j render :partial => "lists/list_form", :locals => {:user => User.find(params[:list][:user_id])} %>');

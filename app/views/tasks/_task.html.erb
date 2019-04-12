@@ -1,0 +1,37 @@
+<li class="list-group-item">
+	<%= div_for(task, class: "#{task.done ? 'done' : 'in_progress'}" + " row col-md-12") do %>
+		<div class='col-md-2'>
+			<%- if task.done %>
+				<%= link_to in_progress_path(task), class: "icon-link", remote: true do %>
+					<i class="em em-ballot_box_with_check"></i>
+				<% end %>
+			<% else %>
+				<%= link_to done_path(task), class: "icon-link", remote: true do %>
+					<i class="em em-black_square_for_stop"></i>
+				<% end %>
+			<% end %>
+		</div>
+		<div class='task-title col-md-6'>
+			<%= task.title %>  
+		</div>
+		<div class='col-md-2'>
+			<%- if task.deadline %>
+				<i class="em em-calendar"></i> <%= task.deadline.to_date %>
+			<% end %>	
+		</div>	
+		<div class='col-md-2'>
+			<%= link_to order_up_path(task), class: "icon-link", title: "Up", remote: true do %>
+				<i class="em em-arrow_up"></i>
+			<% end %>
+			<%= link_to order_down_path(task), class: "icon-link", title: "Down", remote: true do %>
+				<i class="em em-arrow_down"></i>
+			<% end %> | 
+			<%= link_to edit_task_path(task), class: "icon-link", title: "Edit", remote: true do %>
+				<i class="em em-pencil2"></i>
+			<% end %> | 
+			<%= link_to task_path(task), class: "icon-link", title: "Delete", method: :delete, remote: true, data: { confirm: 'Are you sure?' } do %>
+				<i class="em em-wastebasket"></i>
+			<% end %>
+		</div>
+	<% end %>
+</li>

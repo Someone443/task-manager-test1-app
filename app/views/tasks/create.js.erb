@@ -1,0 +1,3 @@
+$( "div#list_<%= j @task.list_id.to_s %> > ul" ).append('<%= j render partial: "task", locals: {task: @task} %>');
+$( "div#list_<%= j @task.list_id.to_s %> > .card-body > .task_form" )[0].reset();
+$( ".task_form > small.text-danger" ).remove();

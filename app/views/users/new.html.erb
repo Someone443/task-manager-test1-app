@@ -1,0 +1,32 @@
+<% content_for(:html_title) { 'Task Manager - Sign up' } %>
+
+<div class="flex_center">
+	<%= form_for @user, html: {class: "new_user text-center"} do |f| %>
+	<p>Create a new account using the form below. All fields are required.</p>
+		<h3>Sign Up</h3>
+		<div class="form-group">
+			<%= f.label :username, class: 'sr-only' %>
+			<%= f.text_field :username, class: "form-control #{@user.errors.any? ? 'is-invalid' : ''}", placeholder: 'Username', required: true, autofocus: true %>
+		</div>
+		<div class="form-group">
+			<%= f.label :password, class: 'sr-only' %>
+			<%= f.password_field :password, class: "form-control #{@user.errors.any? ? 'is-invalid' : ''}", placeholder: 'Password', required: true %>
+		</div>
+		<div class="form-group">
+			<%= f.label :password_confirmation, class: 'sr-only' %>
+			<%= f.password_field :password_confirmation, class: "form-control #{@user.errors.any? ? 'is-invalid' : ''}", placeholder: 'Confirm Password', required: true %>
+	    	<%- if @user.errors.any? %>
+				<% @user.errors.full_messages.each do |msg| %>
+	    			<div class="invalid-feedback text-left">
+						<%= msg %>
+	    			</div>
+				<% end %>
+	    	<% end %>
+		</div>
+		<%= f.submit "Sign Up", class: 'btn btn-lg btn-primary btn-block' %>
+		<p class='mt-2'>
+			Have an account? <%= link_to 'Click here to log in.', login_path %>
+		</p>
+	<% end %>
+</div>
+

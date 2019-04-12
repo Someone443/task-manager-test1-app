@@ -1,0 +1,17 @@
+<%= form_with(model: @list, remote: true, class: "edit_list_form") do |form| %>
+	<div class="input-group">
+		<%= form.label :title, class: 'sr-only' %>
+		<%= form.text_field :title, class: 'form-control', title: 'List title', placeholder: 'TODO list title', required: true  %>
+		<div class="input-group-append">
+			<%= form.hidden_field :user_id, :value => @list.user_id %>
+			<%= form.submit "Save List", :disable_with => 'Saving...', class: 'btn btn-primary' %>
+		</div>
+	</div>
+	<%- if flash[:error] %>
+		<% flash[:error].each do |msg| %>
+	    	<small class="form-text text-danger">
+				<%= msg %>
+	    	</small>
+		<% end %>
+    <% end %>
+<% end %>

@@ -1,0 +1,2 @@
+$( "div#<%= dom_id(@list) %> div.card-header > h4" ).replaceWith('<%= j render :partial => "edit_list_form" %>');
+$( "div#<%= dom_id(@list) %> div.card-header > .list-edit" ).hide();
